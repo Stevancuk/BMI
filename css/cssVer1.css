@@ -1,0 +1,18 @@
+#bmi_form {
+	width: 40%;
+	min-width: 250px;
+	margin: 50px auto;
+}
+h1, h2, h3, h4 {
+	text-align: center;
+}
+#metric_inputs {
+	display: none;
+}
+#result_bmi {
+	display: block;
+	font-size: 20px;
+	font-weight: 600;
+	margin-top: 50px;
+}
+

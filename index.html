@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>BMI Calculator</title>
+	<link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.css">
+	<link rel="stylesheet" href="css/cssVer1.css">
+</head>
+<body>
+	<div id="bmi_wrapper">
+		<h1> BMI Calculator </h1>
+
+		<div id="bmi_form">
+			<h2> Calculate your BMI </h2>
+
+			<input id="pick_imperial" type="radio" name="units" checked>
+			<label for="pick_imperial"> Imperial</label>
+
+			<input id="pick_metric" type="radio" name="units">
+			<label for="pick_metric"> Metric</label>
+
+			<section id="imperial_inputs">
+				<p> Weight </p>
+
+				<input id="input_st" type="number">
+				<label for="input_st"> st</label>
+
+				<input id="input_lbs" type="number">
+				<label for="input_lbs"> lbs</label>
+
+				<p> Height </p>
+
+				<input id="input_ft" type="number">
+				<label for="input_ft"> ft</label>
+
+				<input id="input_in" type="number">
+				<label for="input_in"> in</label>
+			</section>
+
+			<section id="metric_inputs">
+				<p> Weight </p>
+
+				<input id="input_kg" type="number">
+				<label for="input_st"> kg</label>
+
+				<p> Height </p>
+
+				<input id="input_cm" type="number">
+				<label for="input_cm"> cm</label>
+			</section>
+			
+			<output id="result_bmi"></output>
+		</div>
+	</div> <!-- bmi_wrapper -->
+<script
+	src="https://code.jquery.com/jquery-3.4.1.min.js" crossorigin="anonymous"></script>
+<script src="js/jsVer1.js"></script>
+</body>
+</html>
