@@ -62,6 +62,10 @@ $('#input_st').on("change", function(){
     if( parseInt( $(this).val() ) > 25 ){
         $(this).val(25);
     }
+    //min 0
+    if( parseInt( $(this).val() ) < 0 ){
+        $(this).val(0);
+    }
     let lbs = parseInt( $('#input_lbs').val() );
     if( parseInt( $(this).val() ) ){
         if(lbs){
@@ -79,6 +83,10 @@ $('#input_lbs').on("change", function(){
     //max 13
     if( parseInt( $(this).val() ) > 13 ){
         $(this).val(13);
+    }
+    //min 0
+    if( parseInt( $(this).val() ) < 0 ){
+        $(this).val(0);
     }
     let st = parseInt( $('#input_st').val() );
     if( parseInt( $(this).val() ) ){
@@ -104,6 +112,10 @@ $('#input_ft').on("change", function(){
     if( parseInt( $(this).val() ) > 8 ){
         $(this).val(8);
     }
+    //min 0
+    if( parseInt( $(this).val() ) < 0 ){
+        $(this).val(0);
+    }
     let lbs = parseInt( $('#input_in').val() );
     if( parseInt( $(this).val() ) ){
         if(lbs){
@@ -122,6 +134,10 @@ $('#input_in').on("change", function(){
     if( parseInt( $(this).val() ) > 11 ){
         $(this).val(11);
     }
+    //min 0
+    if( parseInt( $(this).val() ) < 0 ){
+        $(this).val(0);
+    }
     let st = parseInt( $('#input_ft').val() );
     if( parseInt( $(this).val() ) ){
         if(st){
@@ -137,24 +153,64 @@ $('#input_in').on("change", function(){
 })
 
 // Metric Weight Range
+$('#range_metric_weight').on("input", function(){
+    $('#input_kg').val( parseInt( $(this).val() ) );
+})
+$('#input_kg').on("change", function(){
+    //max 175
+    if( parseInt( $(this).val() ) > 175 ){
+        $(this).val(175);
+    }
+    //min 0
+    if( parseInt( $(this).val() ) < 0 ){
+        $(this).val(0);
+    }
+    if( parseInt( $(this).val() ) ){
+        $('#range_metric_weight').val( parseInt( $(this).val() ) );    
+    }else{
+       $('#range_metric_weight').val( 0 ); 
+    }
+})
 
-
-
-
-
-
-
-
-
+// Imperial Height Range
+$('#range_metric_height').on("input", function(){
+    $('#input_cm').val( parseInt( $(this).val() ) );
+})
+$('#input_cm').on("change", function(){
+    //max 250
+    if( parseInt( $(this).val() ) > 250 ){
+        $(this).val(250);
+    }
+    //min 0
+    if( parseInt( $(this).val() ) < 0 ){
+        $(this).val(0);
+    }
+    if( parseInt( $(this).val() ) ){
+        $('#range_metric_height').val( parseInt( $(this).val() ) );      
+    }else{
+       $('#range_metric_height').val( 0 ); 
+    }
+})
 
 // ########################################
 // ### DENY CHARACTERS IN NUBMER INPUTs ###
 // ########################################
 
-
-
-
-
+$('input[type="number"]').keydown(function (e) {
+    // Allow: backspace, delete, tab, escape, enter
+    if ($.inArray(e.keyCode, [8, 46, 9, 27, 13]) !== -1 ||
+         // Allow: Ctrl+A
+        (e.keyCode == 65 && e.ctrlKey === true) || 
+         // Allow: home, end, left, right
+        (e.keyCode >= 35 && e.keyCode <= 40)) {
+             // let it happen, don't do anything
+             return;
+    }
+    // Ensure that it is a number and stop the keypress
+    if ((e.shiftKey || (e.keyCode < 48 || e.keyCode > 57)) && (e.keyCode < 96 || e.keyCode > 105)) {
+        e.preventDefault();
+    }
+});
 
 // Calculate whenever value is changed if all values are inputted
 $('#bmi_form input').on("change", calculateBMI);
@@ -172,9 +228,6 @@ $('#pick_imperial').on("click", () => {
 })
 
 $(function(){
-
-    calculateBMI();
-
 
     // Warning Duplicate IDs
     $('[id]').each(function(){

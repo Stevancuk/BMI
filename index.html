@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>BMI Calculator</title>
 	<link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.css">
-	<link rel="stylesheet" href="css/cssVer1.css">
+	<link rel="stylesheet" href="css/cssVer2.css">
 </head>
 <body>
 	<div id="bmi_wrapper">
@@ -45,10 +45,14 @@
 			<section id="metric_inputs">
 				<p> Weight </p>
 
+				<input id="range_metric_weight" type="range" min="0" max="175" value="0">
+
 				<input id="input_kg" type="number">
 				<label for="input_st"> kg</label>
 
 				<p> Height </p>
+
+				<input id="range_metric_height" type="range" min="0" max="250" value="0">
 
 				<input id="input_cm" type="number">
 				<label for="input_cm"> cm</label>
@@ -59,6 +63,6 @@
 	</div> <!-- bmi_wrapper -->
 <script
 	src="https://code.jquery.com/jquery-3.4.1.min.js" crossorigin="anonymous"></script>
-<script src="js/jsVer1.js"></script>
+<script src="js/jsVer2.js"></script>
 </body>
 </html>
